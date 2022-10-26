@@ -39,5 +39,3 @@ Article Page (home page)
 Article Detail Page
 - To access the detail article page, we just click on any article item shown in the list of the homepage.
 - The article detail page includes the headline, abstract, lead paragraph, source, date created and the swiper which includes the images in the multimedia array (if the multimedia array is not empty from the payload).
-
-# Eurisko_RN
