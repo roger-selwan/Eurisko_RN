@@ -1,35 +1,43 @@
-# react-native-boilerplate-guide
-Guidelines for building the latest react native version
+# Eurisko Exercise
+Installation of the project
+- yarn
+- cd ios
+- pod install
+- cd ..
+- yarn ios (to run ios simulator)
+- yarn android (to run android simulator --- most prefarably to open the android simulator first from android studio)
 
-this reposetry will guide you to setup a new react antive app from scratch
-you can run the below code to install the below dependencies
 
-- React Native Navigation 
-- Redux
-- React Redux
-- Redux thunk
-- Dayjs
-- Lottie Animation
-- Push notification, [link](https://github.com/zo0r/react-native-push-notification)
-- React native render HTML
-- react native webView
-- react native video
-- react otp input
-- react native picker
-- react native image picker
-- react native action sheet
+Packages used
+- axios: to post and get the apis
+- dayjs: to format the date
+- react-native-keyboard-aware-scroll-view: used for the keyboard to be under the input.
+- react-native-modal: used for customized style for the pop up alert
+- wix react native navigation: used for the navigation
+- react-native-snap-carousel: used for to show a slider of the multimedia array from the payload if the multimedia array is not empty
+- realm: used to store the access token locally in case the user closed the app after login so he won't go through the login process again and will redirected to the home page.
+- Redux, react-redux, redux-thunk: to be able to use the reducer and actions in the project.
 
-```
-yarn add redux react-redux dayjs redux-thunk realm react-native-render-html react-native-push-notification react-native-webview react-native-video react-native-navigation @react-native-community/push-notification-ios @twotalltotems/react-native-otp-input @react-native-picker/picker axios lottie-react-native lottie-ios@3.1.8 react-native-action-sheet react-native-image-picker
-```
 
-Once the following is done you will need to upgrade the iOS minimum version for XCode project to 13.0
+# Explanation of the process
 
-Navigate to the iOS folder from your terminal by `cd ios/` and run `pod install`
+Login
+- The user logs in using the username and password
+- The button will turn from grey to blue and enabled once both fields were filled.
+- Error handling in case of wrong credentials is handled from the 'axios.config' file using the axios interceptors and will show the pop up modal alert with the error message got from the payload.
+- Once the user is successfully logged in, he will redirected to the home page.
 
-fix the lottie bridgin by createing an empty swift file in Xcode with bridge linking
 
-make sure to update update the native ios files.
+Article Page (home page)
+- Once the page loads, all the articles from page 0 will load first.
+- The refresh control will reload the articles from the api with page = 0 since if any new articles are added from the api, i figured they will be in page 0.
+- Once the user reach the end of the flatlish, an api call will be called with the page is incremented by 1 to get the data from the second page, the added data will be pushed to the old data.
+- Each article will show, the headline, the abstract, the swiper which includes the images in the multimedia array (if the multimedia array is not empty from the payload).
+- Since each object have a lead paragraph, and may have it as a big paragraph, i created an extra page which includes a bit of details of the selected article.
 
-for the push notification make sure you have the firebase and all the installation on android
+
+Article Detail Page
+- To access the detail article page, we just click on any article item shown in the list of the homepage.
+- The article detail page includes the headline, abstract, lead paragraph, source, date created and the swiper which includes the images in the multimedia array (if the multimedia array is not empty from the payload).
+
 # Eurisko_RN
