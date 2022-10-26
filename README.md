@@ -29,11 +29,16 @@ Login
 
 
 Article Page (home page)
+- Logout button is on the top right of the topbar, it will delete the access token from the local storage and redirect the user to login screen.
 - Once the page loads, all the articles from page 0 will load first.
 - The refresh control will reload the articles from the api with page = 0 since if any new articles are added from the api, i figured they will be in page 0.
 - Once the user reach the end of the flatlish, an api call will be called with the page is incremented by 1 to get the data from the second page, the added data will be pushed to the old data.
+- If the user search for an article, by clicking on the search icon, it will see if the word is included in the headline or the abstract since im only showing these 2 variables in the shared component of the article.
+- If no data is shown, it will show a component that isnt any data.
+- If the user remove the text from the search, it recall the api with page = 0.
 - Each article will show, the headline, the abstract, the swiper which includes the images in the multimedia array (if the multimedia array is not empty from the payload).
 - Since each object have a lead paragraph, and may have it as a big paragraph, i created an extra page which includes a bit of details of the selected article.
+
 
 
 Article Detail Page
